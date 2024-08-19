@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    home page
+{% endblock %}
+
+{% block main %}
+     <p>EVENTS</p>
+     <table class="table table-striped">
+       <thead>
+        <tr>
+            <th>EVENTS</th>
+            <th>DATE</th>
+            <th>STATUS</th>
+            <th>COMEPLETED</th>
+        </tr>
+       </thead>
+       <tbody>
+            {% for i in combined %}
+               <tr>
+                   <td>{{ i[0] }}</td>
+                   <td>{{ i[1] }}</td>
+                   <td>{{ i[2] }}</td>
+                   <td>
+                    <form action = "{{ url_for('delete', id=i[0]) }}", method = "post" >
+                        <button type = "submit" class = "btn btn-danger">Completed</button>
+
+                    </form>
+                   </td>    
+
+               </tr>
+            {% endfor %}
+       </tbody>
+     </table>
+     
+{% endblock %}

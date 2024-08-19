@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Event
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="mb-3">
+            <h4>EVENT NAME</h4>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="event_name" placeholder="Event" type="text">
+        </div>
+        <div class="mb-3">
+            <h4>DATE</h4>
+            <input class="form-control mx-auto w-auto" name="event_date" placeholder="YYYY-MM-DD" type="date">
+        </div>
+        <div>
+            <h4>HOW IMPORTANT ?</h4>
+            <input type="radio" id="very_important" name="status" value="very_important">
+            <label for="very_important">Very IMPORTANT</label><br>
+            <input type="radio" id="important" name="status" value="important">
+            <label for="important">IMPORTANT</label><br>
+            <input type="radio" id="later" name="status" value="can_be_done_later">
+            <label for="later">Can be done later</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}
